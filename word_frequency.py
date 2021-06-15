@@ -1,3 +1,4 @@
+
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has',
     'he', 'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to',
@@ -7,19 +8,18 @@ STOP_WORDS = [
 
 class FileReader:
     def __init__(self, filename):
-        pass
+        self.file = filename
 
-    def read_contents(self):
-        """
-        This should read all the contents of the file
-        and return them as one string.
-        """
-        raise NotImplementedError("FileReader.read_contents")
+    def read_contents(self, file):
+        self.file = open(file.self, 'rt')
+        return self.file
+        # raise NotImplementedError("FileReader.read_contents")
 
 
 class WordList:
     def __init__(self, text):
-        pass
+        self.text = text
+        text = file.read().lower()
 
     def extract_words(self):
         """
@@ -72,7 +72,6 @@ class FreqPrinter:
 
 if __name__ == "__main__":
     import argparse
-    import sys
     from pathlib import Path
 
     parser = argparse.ArgumentParser(
@@ -90,4 +89,3 @@ if __name__ == "__main__":
         printer.print_freqs()
     else:
         print(f"{file} does not exist!")
-        sys.exit(1)
